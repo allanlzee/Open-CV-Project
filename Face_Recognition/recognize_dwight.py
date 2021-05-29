@@ -100,6 +100,6 @@ for (x, y, w, h) in faces_rect3:
     cv.putText(image_dwight3, str(people[label]), (20, 20), cv.FONT_HERSHEY_COMPLEX, 1.0, (0, 255, 0), thickness = 2)
     cv.rectangle(image_dwight3, (x, y), (x + w, y + h), (0, 255, 0), thickness = 2)
 
-cv.imshow("Detected Dwight2", image_dwight3)
+cv.imshow("Detected Dwight3", image_dwight3)
 
 cv.waitKey(0) 
