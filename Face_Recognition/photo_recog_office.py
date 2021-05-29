@@ -4,7 +4,7 @@ import numpy as np
 
 haar_cascade = cv.CascadeClassifier('haar_face.xml')
 
-people = ["Michael", "Jim", "Pam", "Dwight"]
+people = ["Dwight", "Jim", "Michael", "Pam"]
 
 DIR = r'/Users/anniezhou/Desktop/Open-CV-Project/Face_Train'
 
