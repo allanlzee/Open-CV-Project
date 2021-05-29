@@ -4,7 +4,7 @@ import numpy as np
 # Use haar_cascade to recognize faces
 haar_cascade = cv.CascadeClassifier('haar_face.xml')
 
-people = ["Dwight", "Jim", "Michael", "Pam"]
+people = ["Angela", "Dwight", "Jim", "Michael", "Pam"]
 
 # Load features from numpy
 features = np.load('features.npy', allow_pickle=True)
@@ -29,7 +29,7 @@ while True:
         label, confidence = face_recognizer.predict(region)
         print(f'Label = {label} with confidence {confidence}')
 
-        cv.putText(frame, str(people[label]), (x, y), cv.FONT_HERSHEY_COMPLEX, 1.0, (0, 255, 0),
+        cv.putText(frame, str(people[label]), (x, y - 10), cv.FONT_HERSHEY_COMPLEX, 1.0, (0, 255, 0),
         thickness = 2)
         cv.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), thickness=2)
     
