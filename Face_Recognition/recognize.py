@@ -16,29 +16,28 @@ face_recognizer.read('face_trained.xml')
 
 # Dwight
 # Read image 
-image = cv.imread(r'/Users/anniezhou/Desktop/Open-CV-Project/Face_Train/Dwight/dwight1.jpeg')
+image_dwight = cv.imread(r'/Users/anniezhou/Desktop/Open-CV-Project/Face_Train/Dwight/dwight1.jpeg')
 
 # Convert to gray scale
-gray = cv.cvtColor(image, cv.COLOR_BGR2GRAY)
+gray_dwight = cv.cvtColor(image_dwight, cv.COLOR_BGR2GRAY)
 
 # cv.imshow("Dwight", gray)
 
 # detect face
-faces_rect = haar_cascade.detectMultiScale(gray, 1.1, 4)
+faces_rect = haar_cascade.detectMultiScale(gray_dwight, 1.1, 4)
 
 # draw rectangle around face
 for (x, y, w, h) in faces_rect: 
-    region = gray[y:y+h, x:x+h]
+    region = gray_dwight[y:y+h, x:x+h]
 
     label, confidence = face_recognizer.predict(region)
     print(f'Label = {label} with confidence {confidence}')
 
-    cv.putText(image, str(people[label]), (20, 20), cv.FONT_HERSHEY_COMPLEX, 1.0, (0, 255, 0),
+    cv.putText(image_dwight, str(people[label]), (20, 20), cv.FONT_HERSHEY_COMPLEX, 1.0, (0, 255, 0),
     thickness = 2)
-    cv.rectangle(image, (x, y), (x + w, y + h), (0, 255, 0), thickness=2)
+    cv.rectangle(image_dwight, (x, y), (x + w, y + h), (0, 255, 0), thickness=2)
 
-cv.imshow("Detected Face", image)
-
+cv.imshow("Detected Dwight", image_dwight)
 
 # Michael
 
@@ -59,9 +58,60 @@ for (x, y, w, h) in faces_rect_michael:
     label, confidence = face_recognizer.predict(region)
     print(f'Label = {label} with confidence {confidence}')
 
-    cv.putText(image_michael, str(people[label]), (20, 20), cv.FONT_HERSHEY_COMPLEX, 1.0, (0, 0, 255),
+    cv.putText(image_michael, str(people[label]), (20, 20), cv.FONT_HERSHEY_COMPLEX, 1.0, (0, 255, 0),
     thickness = 2)
-    cv.rectangle(image_michael, (x, y), (x + w, y + h), (0, 0, 255), thickness=2)
+    cv.rectangle(image_michael, (x, y), (x + w, y + h), (0, 255, 0), thickness=2)
 
 cv.imshow("Detected Michael", image_michael)
+
+# Pam
+# Read image 
+image_pam = cv.imread(r'/Users/anniezhou/Desktop/Open-CV-Project/Face_Train/Pam/pam1.jpeg')
+
+# Convert to gray scale
+gray = cv.cvtColor(image_pam, cv.COLOR_BGR2GRAY)
+
+# cv.imshow("Pam", gray)
+
+# detect face
+faces_rect = haar_cascade.detectMultiScale(gray, 1.1, 4)
+
+# draw rectangle around face
+for (x, y, w, h) in faces_rect: 
+    region = gray[y:y+h, x:x+h]
+
+    label, confidence = face_recognizer.predict(region)
+    print(f'Label = {label} with confidence {confidence}')
+
+    cv.putText(image_pam, str(people[label]), (20, 20), cv.FONT_HERSHEY_COMPLEX, 1.0, (255, 255, 0),
+    thickness = 2)
+    cv.rectangle(image_pam, (x, y), (x + w, y + h), (0, 255, 0), thickness=2)
+
+cv.imshow("Detected Pam", image_pam)
+
+# Jim
+# Read image 
+image_jim = cv.imread(r'/Users/anniezhou/Desktop/Open-CV-Project/Face_Train/Jim/jim1.jpeg')
+
+# Convert to gray scale
+gray_jim = cv.cvtColor(image_jim, cv.COLOR_BGR2GRAY)
+
+# cv.imshow("Dwight", gray)
+
+# detect face
+faces_rect = haar_cascade.detectMultiScale(gray_jim, 1.1, 4)
+
+# draw rectangle around face
+for (x, y, w, h) in faces_rect: 
+    region = gray_jim[y:y+h, x:x+h]
+
+    label, confidence = face_recognizer.predict(region)
+    print(f'Label = {label} with confidence {confidence}')
+
+    cv.putText(image_jim, str(people[label]), (20, 20), cv.FONT_HERSHEY_COMPLEX, 1.0, (0, 255, 0),
+    thickness = 2)
+    cv.rectangle(image_jim, (x, y), (x + w, y + h), (0, 255, 0), thickness=2)
+
+cv.imshow("Detected Face", image_jim)
+
 cv.waitKey(0)

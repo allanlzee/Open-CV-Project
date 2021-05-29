@@ -35,7 +35,7 @@ create_train()
 # print(f'Length of the features = {len(features)}')
 # print(f'Length of the labels = {len(labels)}')
 
-print("Training <-----------------------------> Done")
+print("Training Done")
 features = np.array(features, dtype='object')
 labels = np.array(labels)
 
